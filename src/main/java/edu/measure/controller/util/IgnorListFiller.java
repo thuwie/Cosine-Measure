@@ -1,13 +1,13 @@
-package main.java.com.measure.controller.util;
+package main.java.edu.measure.controller.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import static main.java.com.measure.controller.util.Constants.ignoredWords;
+import static main.java.edu.measure.controller.util.Constants.ignoredWords;
 
 /**
- * Ignor list fillment
+ * Ignor originalListOfParagraphs fillment
  */
 public class IgnorListFiller {
     public static void listFillment(){

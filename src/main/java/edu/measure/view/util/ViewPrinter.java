@@ -1,4 +1,4 @@
-package main.java.com.measure.view.util;
+package main.java.edu.measure.view.util;
 
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -20,3 +20,4 @@ public class ViewPrinter {
         }
     }
 }
+/*TODO APACHE COMMANDS STRING UTIL*/

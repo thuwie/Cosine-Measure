@@ -1,8 +1,8 @@
-package main.java.com.measure.controller.util;
+package main.java.edu.measure.controller.util;
 
 import java.util.*;
 
-import static main.java.com.measure.controller.util.Constants.ignoredWords;
+import static main.java.edu.measure.controller.util.Constants.ignoredWords;
 
 /**
  * Class contains method for StringTokenizer usage

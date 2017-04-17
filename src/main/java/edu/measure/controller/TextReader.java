@@ -1,4 +1,4 @@
-package main.java.com.measure.controller;
+package main.java.edu.measure.controller;
 
 
 import java.io.BufferedReader;
@@ -6,9 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-import main.java.com.measure.controller.util.Constants;
+import main.java.edu.measure.controller.util.Constants;
 
-import static main.java.com.measure.controller.util.Constants.END_OF_PARAGRAPH;
+import static main.java.edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
 
 
 /**
@@ -22,10 +22,11 @@ public class TextReader {
         try {
             BufferedReader input;
             input = new BufferedReader(new FileReader(filename));
-            readedText = input.readLine();
+            readedText = input.readLine().toLowerCase();
             while (readedText != null) {
                 finalText += readNextLine(readedText);
                 readedText = input.readLine();
+                if(readedText!=null)readedText.toLowerCase();
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());

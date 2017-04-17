@@ -1,8 +1,6 @@
-package main.java.com.measure.controller.util;
+package main.java.edu.measure.controller.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Class which contains all kind of a static objects and strings
@@ -10,11 +8,12 @@ import java.util.StringTokenizer;
 
 public class Constants {
 
-    public static String delimiter = " .!,?;:_()[]$-@~/*#&\"";
+    public static String delimiter = " .!,?;:_()[]$=-@~/*#&\"";
 
     public static String END_OF_PARAGRAPH="EndOfParagraph";
 
 
     public static List<String> ignoredWords = new ArrayList<>();
+    public static Map<String,String> semantWords=new HashMap<>();
     public static StringTokenizer staticTextFromFileForStoraging = new StringTokenizer("");
 }

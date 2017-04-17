@@ -1,4 +1,4 @@
-package main.java.com.measure.controller.data;
+package main.java.edu.measure.controller.data;
 
 import java.util.*;
 
@@ -7,24 +7,24 @@ import java.util.*;
  */
 public class MapContainer {
 
-    public static List<Map<String, Integer>> list;
+    public static List<Map<String, Integer>> originalListOfParagraphs;
 
     public MapContainer() {
     }
 
     public MapContainer(List<Map<String, Integer>> list) {
-        this.list = list;
+        originalListOfParagraphs = list;
     }
 
     public List<Map<String, Integer>> getList() {
-        return list;
+        return originalListOfParagraphs;
     }
 
     public void addAllList(List<Map<String, Integer>> list) {
-        list.addAll(list);
+        originalListOfParagraphs.addAll(list);
     }
 
     public void addToList(Map<String, Integer> map) {
-        list.add(map);
+        originalListOfParagraphs.add(map);
     }
 }
