@@ -24,7 +24,7 @@ public class CosineMeasure {
 
 
         DataMapsControl dataMapsControl = new DataMapsControl();
-        staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("germanSubsSmallChunkText");
+        staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("germanSubsChunkText");
         textFromFile = staticTextFromFileForStoraging;
 
         dataMapsControl.mapConfig(textFromFile);
