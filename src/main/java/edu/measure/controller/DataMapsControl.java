@@ -1,16 +1,17 @@
-package main.java.edu.measure.controller;
+package edu.measure.controller;
 
 
-import main.java.edu.measure.controller.data.MapContainer;
-import main.java.edu.measure.controller.util.TokenizerControl;
+
+import edu.measure.controller.data.MapContainer;
+import edu.measure.controller.util.TokenizerControl;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import static main.java.edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
-import static main.java.edu.measure.controller.util.Constants.semantWords;
+import static edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
+import static edu.measure.controller.util.Constants.semantWords;
 
 
 /**

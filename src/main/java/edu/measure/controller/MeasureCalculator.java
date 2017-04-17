@@ -1,10 +1,11 @@
-package main.java.edu.measure.controller;
+package edu.measure.controller;
+
 
 
 import java.util.*;
 
 /**
- * Contains cosinus measure calculations logic
+ * Contains cosinus edu.measure calculations logic
  */
 public class MeasureCalculator {
     public void mergeMaps(Map<String, Integer> firstMap, Map<String, Integer> secondMap) {

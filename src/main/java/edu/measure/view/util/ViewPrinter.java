@@ -1,4 +1,4 @@
-package main.java.edu.measure.view.util;
+package edu.measure.view.util;
 
 import java.util.Map;
 import java.util.StringTokenizer;

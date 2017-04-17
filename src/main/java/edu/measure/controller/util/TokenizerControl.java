@@ -1,8 +1,7 @@
-package main.java.edu.measure.controller.util;
+package edu.measure.controller.util;
+
 
 import java.util.*;
-
-import static main.java.edu.measure.controller.util.Constants.ignoredWords;
 
 /**
  * Class contains method for StringTokenizer usage
@@ -20,7 +19,7 @@ public class TokenizerControl {
         Map<String, Integer> resultMap = new LinkedHashMap<>();
         while (tokenizer.hasMoreTokens()) {
             String word = tokenizer.nextToken();
-            if (!ignoredWords.contains(word)) {
+            if (!Constants.ignoredWords.contains(word)) {
                 if (resultMap.containsKey(word)) {
                     resultMap.put(word, resultMap.get(word) + 1);
                 } else resultMap.put(word, 1);

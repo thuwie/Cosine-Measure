@@ -1,10 +1,10 @@
-package main.java.edu.measure.controller.util;
+package edu.measure.controller.util;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import static main.java.edu.measure.controller.util.Constants.ignoredWords;
 
 /**
  * Ignor originalListOfParagraphs fillment
@@ -17,7 +17,7 @@ public class IgnorListFiller {
             input = new BufferedReader(new FileReader("IgnoreList"));
             readedText = input.readLine();
             while (readedText != null) {
-                ignoredWords.add(readedText);
+                Constants.ignoredWords.add(readedText);
                 readedText = input.readLine();
 
             }

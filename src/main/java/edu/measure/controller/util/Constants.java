@@ -1,4 +1,4 @@
-package main.java.edu.measure.controller.util;
+package edu.measure.controller.util;
 
 import java.util.*;
 

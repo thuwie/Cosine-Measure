@@ -1,9 +1,8 @@
-package main.java.edu.measure.view;
+package edu.measure.view;
 
 
-import main.java.edu.measure.controller.util.IgnorListFiller;
-import main.java.edu.measure.controller.util.SemantWordsFiller;
-
+import edu.measure.controller.util.IgnorListFiller;
+import edu.measure.controller.util.SemantWordsFiller;
 
 public class CosineMeasureRunner {
     public static void main(String[] args) {

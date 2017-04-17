@@ -1,15 +1,16 @@
-package main.java.edu.measure.view;
+package edu.measure.view;
 
 
-import main.java.edu.measure.controller.DataMapsControl;
-import main.java.edu.measure.controller.MeasureCalculator;
-import main.java.edu.measure.controller.TextReader;
-import main.java.edu.measure.controller.data.MapContainer;
-import main.java.edu.measure.view.util.ViewPrinter;
+
+
+import edu.measure.controller.DataMapsControl;
+import edu.measure.controller.MeasureCalculator;
+import edu.measure.controller.TextReader;
+import edu.measure.controller.data.MapContainer;
+import edu.measure.view.util.ViewPrinter;
+import edu.measure.controller.util.Constants;
 
 import java.util.*;
-
-import static main.java.edu.measure.controller.util.Constants.staticTextFromFileForStoraging;
 
 
 public class CosineMeasure {
@@ -21,11 +22,10 @@ public class CosineMeasure {
         TextReader textReader = new TextReader();
         ViewPrinter viewPrinter = new ViewPrinter();
         MeasureCalculator measureCalculator = new MeasureCalculator();
-
-
         DataMapsControl dataMapsControl = new DataMapsControl();
-        staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("germanSubsChunkText");
-        textFromFile = staticTextFromFileForStoraging;
+
+        Constants.staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("germanSubsChunkText");
+        textFromFile = Constants.staticTextFromFileForStoraging;
 
         dataMapsControl.mapConfig(textFromFile);
         for(Map<String, Integer>  map : mapContainer.getList())

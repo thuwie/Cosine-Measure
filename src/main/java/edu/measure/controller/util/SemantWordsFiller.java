@@ -1,12 +1,10 @@
-package main.java.edu.measure.controller.util;
+package edu.measure.controller.util;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
-
-import static main.java.edu.measure.controller.util.Constants.delimiter;
-import static main.java.edu.measure.controller.util.Constants.semantWords;
 
 /**
  * Cognate map fillment
@@ -18,10 +16,10 @@ public class SemantWordsFiller {
             BufferedReader input;
             input = new BufferedReader(new FileReader("ModList"));
             readedText = input.readLine();
-            StringTokenizer stringTokenizer = new StringTokenizer(readedText,delimiter);
+            StringTokenizer stringTokenizer = new StringTokenizer(readedText, Constants.delimiter);
             while (readedText != null) {
                 while(stringTokenizer.hasMoreTokens()){
-                semantWords.put(stringTokenizer.nextToken(),stringTokenizer.nextToken());}
+                Constants.semantWords.put(stringTokenizer.nextToken(),stringTokenizer.nextToken());}
                 readedText = input.readLine();
 
             }

@@ -1,4 +1,5 @@
-package main.java.edu.measure.controller.data;
+package edu.measure.controller.data;
+
 
 import java.util.*;
 

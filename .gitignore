@@ -1,4 +1,4 @@
-.idea/
-Cosinus-Measure.iml
+.idea
+*.iml
 out
-
+target
