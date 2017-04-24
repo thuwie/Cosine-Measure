@@ -10,7 +10,12 @@ public class MapContainer {
 
     public static List<Map<String, Integer>> originalListOfParagraphs;
 
-    public MapContainer() {
+    private MapContainer() {
+        try {
+            throw new IllegalAccessException("Chooo???");
+        } catch (IllegalAccessException e) {
+            e.getMessage();
+        }
     }
 
     public MapContainer(List<Map<String, Integer>> list) {

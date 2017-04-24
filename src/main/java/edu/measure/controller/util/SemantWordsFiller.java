@@ -23,6 +23,7 @@ public class SemantWordsFiller {
                 readedText = input.readLine();
 
             }
+            input.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

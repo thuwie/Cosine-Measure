@@ -19,20 +19,21 @@ public class TextReader {
     public StringTokenizer returnStringTokenFromFile(String filename) {
         String readedText;
         String finalText = "";
+        BufferedReader input = null;
         try {
-            BufferedReader input;
             input = new BufferedReader(new FileReader(filename));
             readedText = input.readLine().toLowerCase();
             while (readedText != null) {
                 finalText += readNextLine(readedText);
                 readedText = input.readLine();
-                if(readedText!=null)readedText.toLowerCase();
+                if (readedText != null) readedText.toLowerCase();
             }
+            input.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
         return new StringTokenizer(finalText, Constants.delimiter);
+
     }
 
     private String readNextLine(String string) {
