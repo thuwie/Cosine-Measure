@@ -19,7 +19,7 @@ import static edu.measure.controller.util.Constants.semantWords;
  */
 public class DataMapsControl {
 
-    public void mapConfig(StringTokenizer textFromFile) {
+    public List<Map<String,Integer>> mapConfig(StringTokenizer textFromFile) {
         StringTokenizer summonedParagraphToken;
         String summonedParagraphString = "";
         TokenizerControl tokenizerControl = new TokenizerControl();
@@ -32,6 +32,7 @@ public class DataMapsControl {
             textFromFile = tokenizerControl.excludeFromTokenizer(textFromFile, summonedParagraphString);
         }
         MapContainer mapContainer = new MapContainer(listedList);
+        return listedList;
     }
 
     private String tokenToString(StringTokenizer stringTokenizer) {

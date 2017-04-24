@@ -8,7 +8,7 @@ import java.util.*;
  * Contains cosinus edu.measure calculations logic
  */
 public class MeasureCalculator {
-    public void mergeMaps(Map<String, Integer> firstMap, Map<String, Integer> secondMap) {
+    public double mergeMaps(Map<String, Integer> firstMap, Map<String, Integer> secondMap) {
         Set<String> intersection = new LinkedHashSet<>(firstMap.keySet());
         intersection.retainAll(secondMap.keySet());
         double result;
@@ -26,6 +26,7 @@ public class MeasureCalculator {
         }
 
          result = dotProduct / Math.sqrt(magnitudeA * magnitudeB);
-        System.out.println(result);
+        return result;
+        //System.out.println(result);
     }
 }
