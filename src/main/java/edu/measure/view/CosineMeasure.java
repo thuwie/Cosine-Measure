@@ -19,7 +19,7 @@ public class CosineMeasure {
     public static void run() throws FileNotFoundException {
         Map<String,Double> finalMap = new LinkedHashMap<>();
         StringTokenizer textFromFile;
-        Double result;
+        Double result,edge=1.0;
         String command;
         PrintWriter keyWriter = new PrintWriter("keys.txt");
         PrintWriter valueWriter = new PrintWriter("values.txt");
@@ -31,6 +31,8 @@ public class CosineMeasure {
         Scanner input = new Scanner(System.in);
         System.out.println("Choose text: \n|full\n|parhs");
         command = input.nextLine();
+        System.out.println("Choose edge for recall-precision: ");
+        edge=input.nextDouble();
 
         if ("full".equalsIgnoreCase(command))
         {
@@ -52,7 +54,7 @@ public class CosineMeasure {
         for (int i = 0; i < list.size()-1; i++) {
             String filler=""+i+"-"+(i+1);
             result = measureCalculator.mergeMaps(list.get(i), list.get(i + 1));
-            if (result>0.18){tp++;}
+            if (result>edge){tp++;}
             else{fn++;}
             finalMap.put(filler,result);
             keyWriter.println(filler);
@@ -63,7 +65,7 @@ public class CosineMeasure {
         //new ChartPrinter().createGraph(finalMap);
         double[][] finalMatrix = new MeasureMatrixCalculator().matrixCalculator(list);
         viewPrinter.printDoubleArray(finalMatrix);
-        System.out.println("True positive"+tp+" False negative"+fn);
+        System.out.println("True positive: "+tp+" False negative: "+fn+" Based on "+edge+" edge");
         keyWriter.close();
         valueWriter.close();
     }
