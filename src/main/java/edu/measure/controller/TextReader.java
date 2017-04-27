@@ -22,11 +22,10 @@ public class TextReader {
         BufferedReader input = null;
         try {
             input = new BufferedReader(new FileReader(filename));
-            readedText = input.readLine().toLowerCase();
+            readedText = input.readLine();
             while (readedText != null) {
                 finalText += readNextLine(readedText);
                 readedText = input.readLine();
-                if (readedText != null) readedText.toLowerCase();
             }
             input.close();
         } catch (IOException e) {

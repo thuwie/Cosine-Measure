@@ -36,5 +36,11 @@ public class ViewPrinter {
             System.out.println("");
         }
     }
+    public void printBooleanArray(boolean[] array){
+        for(int i=0;i<array.length;i++)
+        {
+            System.out.println("Index: "+i+"Value"+array[i]+" ");
+        }
+    }
 }
 /*TODO APACHE COMMANDS STRING UTIL*/

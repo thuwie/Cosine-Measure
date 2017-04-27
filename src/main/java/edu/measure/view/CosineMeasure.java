@@ -1,10 +1,7 @@
 package edu.measure.view;
 
 
-import edu.measure.controller.DataMapsControl;
-import edu.measure.controller.MeasureCalculator;
-import edu.measure.controller.MeasureMatrixCalculator;
-import edu.measure.controller.TextReader;
+import edu.measure.controller.*;
 import edu.measure.controller.data.MapContainer;
 import edu.measure.controller.util.Constants;
 import edu.measure.view.util.ViewPrinter;
@@ -23,7 +20,7 @@ public class CosineMeasure {
         String command;
         PrintWriter keyWriter = new PrintWriter("keys.txt");
         PrintWriter valueWriter = new PrintWriter("values.txt");
-
+        ParahsEdgeCounter parahsEdgeCounter = new ParahsEdgeCounter();
         TextReader textReader = new TextReader();
         ViewPrinter viewPrinter = new ViewPrinter();
         MeasureCalculator measureCalculator = new MeasureCalculator();
@@ -68,6 +65,13 @@ public class CosineMeasure {
         System.out.println("True positive: "+tp+" False negative: "+fn+" Based on "+edge+" edge");
         keyWriter.close();
         valueWriter.close();
+        System.out.println("____________");
+        System.out.println(measureCalculator.mergeMaps(list.get(1),list.get(3)));
+        System.out.println("______");
+
+        System.out.println(measureCalculator.mergeMaps(list.get(3),list.get(1)));
+        boolean[] massiv = parahsEdgeCounter.expertEdgeChecker(list,list.size());
+        viewPrinter.printBooleanArray(massiv);
     }
 
 }
