@@ -12,6 +12,7 @@ import java.io.IOException;
 public class IgnorListFiller {
     public static void listFillment(){
         String readedText;
+
         try {
             BufferedReader input;
             input = new BufferedReader(new FileReader("IgnoreList"));
@@ -22,8 +23,11 @@ public class IgnorListFiller {
 
             }
             input.close();
+
         } catch (IOException e) {
+
             System.out.println(e.getMessage());
         }
+
     }
 }

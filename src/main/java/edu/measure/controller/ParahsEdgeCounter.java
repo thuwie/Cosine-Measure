@@ -17,13 +17,26 @@ public class ParahsEdgeCounter {
                 edges[Integer.parseInt(listParah.get(0))] = true;
             }
         }
-
         return edges;
-
     }
 
-    public boolean isUpperCase(String s) {
+    private boolean isUpperCase(String s) {
         return s.equals(s.toUpperCase());
+    }
+
+    public boolean[] customEdgeChecker(Map<String,Double> cosinedMap, int size, double cosineEdge)
+    {
+        boolean[] edges = new boolean[size+1];
+
+        for(String key : cosinedMap.keySet())
+        {
+            double temp = cosinedMap.get(key);
+            if(temp<cosineEdge)
+            {
+                edges[Integer.parseInt(key)] = true;
+            }
+        }
+        return edges;
     }
 
 }

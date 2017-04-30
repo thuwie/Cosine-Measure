@@ -1,5 +1,7 @@
 package edu.measure.view.util;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -37,10 +39,23 @@ public class ViewPrinter {
         }
     }
     public void printBooleanArray(boolean[] array){
-        for(int i=0;i<array.length;i++)
+        for(int i=1;i<array.length;i++)
         {
-            System.out.println("Index: "+i+"Value"+array[i]+" ");
+            System.out.println("Index: "+i+" Value: "+array[i]+" ");
         }
+    }
+    public void printBooleanArrayToFile(boolean[] array,String name){
+        try {
+            PrintWriter expertWriter = new PrintWriter(name);
+            for(int i=1;i<array.length;i++)
+            {
+                expertWriter.write(""+array[i]+" \n");
+            }
+            expertWriter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 /*TODO APACHE COMMANDS STRING UTIL*/

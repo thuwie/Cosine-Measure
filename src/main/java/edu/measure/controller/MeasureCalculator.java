@@ -27,6 +27,5 @@ public class MeasureCalculator {
 
          result = dotProduct / Math.sqrt(magnitudeA * magnitudeB);
         return result;
-        //System.out.println(result);
     }
 }
