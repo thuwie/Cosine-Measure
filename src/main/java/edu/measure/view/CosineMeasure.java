@@ -1,8 +1,10 @@
 package edu.measure.view;
 
 
-import edu.measure.controller.*;
-import edu.measure.controller.data.MapContainer;
+import edu.measure.controller.DataMapsControl;
+import edu.measure.controller.MeasureCalculator;
+import edu.measure.controller.RecallPrecisionCalculator;
+import edu.measure.controller.TextReader;
 import edu.measure.controller.util.Constants;
 import edu.measure.view.util.ViewPrinter;
 
@@ -25,12 +27,11 @@ public class CosineMeasure {
         DataMapsControl dataMapsControl = new DataMapsControl();
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Print filename: ");
+        System.out.println("Available files: germansubs, uboat, chap7, chap8\nPrint filename: ");
         Constants.staticTextFromFileForStoraging = textReader.returnStringTokenFromFile(input.nextLine());
         textFromFile = Constants.staticTextFromFileForStoraging;
 
         List<Map<String, Integer>> list = dataMapsControl.mapConfig(textFromFile);
-
 
         for (int i = 0; i < list.size() - 1; i++) {
             String filler = "" + (i + 1);

@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Constants {
 
-    public static String delimiter = " .!,?;:_()[]$=-@~/*#&\"";
+    public static String delimiter = " .!,?;:_()[]$=@~/*#&\"";
 
     public static String END_OF_PARAGRAPH="EndOfParagraph";
 

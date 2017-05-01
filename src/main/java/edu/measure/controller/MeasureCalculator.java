@@ -12,7 +12,6 @@ public class MeasureCalculator {
         Set<String> intersection = new LinkedHashSet<>(firstMap.keySet());
         intersection.retainAll(secondMap.keySet());
         double result;
-
         double dotProduct = 0, magnitudeA = 0, magnitudeB = 0;
         for (String item : intersection) {
             dotProduct += firstMap.get(item) * secondMap.get(item);
