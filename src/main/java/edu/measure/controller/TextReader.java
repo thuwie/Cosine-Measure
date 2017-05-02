@@ -1,12 +1,12 @@
 package edu.measure.controller;
 
 
+import edu.measure.controller.util.Constants;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
-
-import edu.measure.controller.util.Constants;
 
 import static edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
 

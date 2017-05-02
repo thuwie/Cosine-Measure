@@ -1,4 +1,4 @@
-package edu.measure.view;
+package edu.measure.view.util;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -6,19 +6,17 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import java.awt.*;
 import java.util.Map;
+
 /**
  * Class for chart creation
  */
-class ChartPrinter {
-    void createGraph(Map<String,Double> gotMap)
-    {
+public class ChartPrinter {
+    public void createGraph(Map<String, Double> gotMap) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
-        for(String key : gotMap.keySet())
-        {
-            dataset.addValue(gotMap.get(key),"1",key);
+        for (String key : gotMap.keySet()) {
+            dataset.addValue(gotMap.get(key), "1", key);
         }
         JFreeChart objChart = ChartFactory.createBarChart(
                 "Chart",     //Chart title

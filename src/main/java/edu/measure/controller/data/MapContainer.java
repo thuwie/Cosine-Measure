@@ -1,7 +1,8 @@
 package edu.measure.controller.data;
 
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Class contains paragraphs maps for data transfer
@@ -14,7 +15,7 @@ public class MapContainer {
         try {
             throw new IllegalAccessException("Chooo???");
         } catch (IllegalAccessException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 

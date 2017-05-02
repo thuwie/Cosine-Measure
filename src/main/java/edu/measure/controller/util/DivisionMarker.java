@@ -1,4 +1,4 @@
-package edu.measure.controller;
+package edu.measure.controller.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Contains logic for arrays fillment with edges
  */
-public class ParahsEdgeCounter {
+public class DivisionMarker {
     public boolean[] expertEdgeChecker(List<Map<String, Integer>> list, int size) {
         boolean[] edges = new boolean[size];
         int currPos = 1;
@@ -21,9 +21,6 @@ public class ParahsEdgeCounter {
         return edges;
     }
 
-    private boolean isUpperCase(String s) {
-        return s.equals(s.toUpperCase());
-    }
 
     public boolean[] customEdgeChecker(Map<String, Double> cosinedMap, int size, double cosineEdge) {
         boolean[] edges = new boolean[size + 1];
@@ -35,6 +32,10 @@ public class ParahsEdgeCounter {
             }
         }
         return edges;
+    }
+
+    private boolean isUpperCase(String s) {
+        return s.equals(s.toUpperCase());
     }
 
 }

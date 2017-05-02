@@ -1,9 +1,5 @@
-package edu.measure.controller;
+package edu.measure.controller.util;
 
-
-
-import edu.measure.controller.data.MapContainer;
-import edu.measure.controller.util.TokenizerControl;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +7,6 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import static edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
-import static edu.measure.controller.util.Constants.semantWords;
 
 
 /**
@@ -19,9 +14,9 @@ import static edu.measure.controller.util.Constants.semantWords;
  */
 public class DataMapsControl {
 
-    public List<Map<String,Integer>> mapConfig(StringTokenizer textFromFile) {
+    public List<Map<String, Integer>> mapConfig(StringTokenizer textFromFile) {
         StringTokenizer summonedParagraphToken;
-        String summonedParagraphString = "";
+        String summonedParagraphString;
         TokenizerControl tokenizerControl = new TokenizerControl();
         List<Map<String, Integer>> listedList = new LinkedList<>();
         while (textFromFile.hasMoreTokens()) {
@@ -31,7 +26,6 @@ public class DataMapsControl {
 
             textFromFile = tokenizerControl.excludeFromTokenizer(textFromFile, summonedParagraphString);
         }
-        MapContainer mapContainer = new MapContainer(listedList);
         return listedList;
     }
 
@@ -40,20 +34,9 @@ public class DataMapsControl {
         while (stringTokenizer.hasMoreTokens()) {
             String temp = stringTokenizer.nextToken();
             if (temp.equals(END_OF_PARAGRAPH)) break;
-            temp=wordReplacer(temp);
             summonedParagraphString += temp + " ";
         }
         return summonedParagraphString;
-    }
-
-    private String wordReplacer(String string) {
-        for (Map.Entry s : semantWords.entrySet()) {
-            if (string.contains(s.getKey().toString())) {
-                string = s.getValue().toString();
-            }
-
-        }
-        return string;
     }
 }
 

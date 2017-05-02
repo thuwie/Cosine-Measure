@@ -10,15 +10,14 @@ import java.util.StringTokenizer;
  */
 public class ViewPrinter {
     public void printIntegerMap(Map<String, Integer> stringIntegerMap) {
-        for(String key : stringIntegerMap.keySet())
-        {
-            System.out.println(key+" "+stringIntegerMap.get(key));
+        for (String key : stringIntegerMap.keySet()) {
+            System.out.println(key + " " + stringIntegerMap.get(key));
         }
     }
+
     public void printDoubleMap(Map<String, Double> stringDoubleMap) {
-        for(String key : stringDoubleMap.keySet())
-        {
-            System.out.println(key+" "+stringDoubleMap.get(key));
+        for (String key : stringDoubleMap.keySet()) {
+            System.out.println(key + " " + stringDoubleMap.get(key));
         }
     }
 
@@ -27,29 +26,27 @@ public class ViewPrinter {
             System.out.println(tokenizedText.nextToken());
         }
     }
-    public void printDoubleArray(double[][] arrayToPrint)
-    {
-        for(int i=0;i<arrayToPrint.length;i++)
-        {
-            for(int j=0;j<arrayToPrint.length;j++)
-            {
-                System.out.format("%.3f ",arrayToPrint[i][j]);
+
+    public void printDoubleArray(double[][] arrayToPrint) {
+        for (int i = 0; i < arrayToPrint.length; i++) {
+            for (int j = 0; j < arrayToPrint.length; j++) {
+                System.out.format("%.3f ", arrayToPrint[i][j]);
             }
             System.out.println("");
         }
     }
-    public void printBooleanArray(boolean[] array){
-        for(int i=1;i<array.length;i++)
-        {
-            System.out.println("Index: "+i+" Value: "+array[i]+" ");
+
+    public void printBooleanArray(boolean[] array) {
+        for (int i = 1; i < array.length; i++) {
+            System.out.println("Index: " + i + " Value: " + array[i] + " ");
         }
     }
-    public void printBooleanArrayToFile(boolean[] array,String name){
+
+    public void printBooleanArrayToFile(boolean[] array, String name) {
         try {
             PrintWriter expertWriter = new PrintWriter(name);
-            for(int i=1;i<array.length;i++)
-            {
-                expertWriter.write(""+array[i]+" \n");
+            for (int i = 1; i < array.length; i++) {
+                expertWriter.write("" + array[i] + " \n");
             }
             expertWriter.close();
         } catch (FileNotFoundException e) {

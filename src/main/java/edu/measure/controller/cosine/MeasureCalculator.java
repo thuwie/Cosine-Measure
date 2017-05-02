@@ -1,8 +1,9 @@
-package edu.measure.controller;
+package edu.measure.controller.cosine;
 
 
-
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Contains cosinus edu.measure calculations logic
@@ -24,7 +25,7 @@ public class MeasureCalculator {
             magnitudeB += Math.pow(secondMap.get(k), 2);
         }
 
-         result = dotProduct / Math.sqrt(magnitudeA * magnitudeB);
+        result = dotProduct / Math.sqrt(magnitudeA * magnitudeB);
         return result;
     }
 }
