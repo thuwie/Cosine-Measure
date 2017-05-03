@@ -47,7 +47,7 @@ public class DelimiterExecutors {
         return min;
     }
 
-    private Map<String, Double> util(boolean[] expertEdges, boolean[] customEdges) {
+    private static Map<String, Double> util(boolean[] expertEdges, boolean[] customEdges) {
         Map<String, Double> resultMap = new HashMap<>();
         double truePositives = 0;
         double falsePositives = 0;

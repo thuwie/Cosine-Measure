@@ -16,7 +16,6 @@ import java.util.*;
 
 import static edu.measure.controller.util.Constants.*;
 
-
 public class CosineMeasure {
 
     public static void run() {

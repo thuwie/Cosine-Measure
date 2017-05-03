@@ -19,9 +19,9 @@ public class TextReader {
     public StringTokenizer returnStringTokenFromFile(String filename) {
         String readedText;
         String finalText = "";
-        BufferedReader input = null;
+        BufferedReader input;
         try {
-            input = new BufferedReader(new FileReader(filename));
+             input = new BufferedReader(new FileReader(filename));
             readedText = input.readLine();
             while (readedText != null) {
                 finalText += readNextLine(readedText);

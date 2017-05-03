@@ -35,10 +35,7 @@ public class RecallPrecisionCalculator {
                     compareResult = delimiterCommand.executeCommand(expertEdges, customEdges);
                     if (compareResult > bestResult) {
                         bestEdge = edge;
-                        bestResult = compareResult;
-                    } else if (compareResult == bestResult && edge > bestEdge) {
-                        bestEdge = edge;
-                    }
+                        bestResult = compareResult;}
                     System.out.format("Edge: %.3f | %s: %.3f%n", edge,userCommand,compareResult);
                 }
             }
