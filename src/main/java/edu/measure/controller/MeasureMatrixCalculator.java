@@ -22,8 +22,12 @@ public class MeasureMatrixCalculator {
                 returnArray[i][j] = measureCalculator.mergeMaps(list.get(i), list.get(j));
             }
         }
-
-
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if(i==j){
+                returnArray[i][j] = 0.0;}
+            }
+        }
         return returnArray;
     }
 }

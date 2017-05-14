@@ -1,6 +1,7 @@
 package edu.measure.view;
 
 
+import edu.measure.controller.MeasureMatrixCalculator;
 import edu.measure.controller.TextReader;
 import edu.measure.controller.cosine.MeasureCalculator;
 import edu.measure.controller.cosine.RecallPrecisionCalculator;
@@ -38,8 +39,9 @@ public class CosineMeasure {
         DataMapsControl dataMapsControl = new DataMapsControl();
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Available files: germansubs, uboat, chap7, chap8\nPrint filename: ");
-        Constants.staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("sourceFiles/" + input.nextLine());
+        System.out.println("Available files: germansubs, uboat, chap7, chap8, robototech\nPrint filename: ");
+        String filename=input.nextLine();
+        Constants.staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("sourceFiles/" + filename);
         System.out.println("Available modes:");
 
         for (String key : new DelimiterCommandMap().getCommands()) {
@@ -56,20 +58,24 @@ public class CosineMeasure {
             String filler = "" + (i + 1);
             result = measureCalculator.mergeMaps(list.get(i), list.get(i + 1));
             resultMap.put(filler, result);
+            keyWriter.println(filler);
             valueWriter.println(result);
         }
         finalMap = resultMap;
         viewPrinter.printDoubleMap(resultMap);
-        /*MATRIX CALCULATION
-        double[][] finalMatrix = new MeasureMatrixCalculator().matrixCalculator(list);*/
+        double[][] finalMatrix = new MeasureMatrixCalculator().matrixCalculator(list);
         double resulted = new RecallPrecisionCalculator().cosineEdgeComparator(list, finalMap, command);
 
         System.out.format("Best edge: %.3f%n", resulted);
+
+        viewPrinter.printDoubleArrayToFile(finalMatrix,filename+COSINE_MEASURE_MATRIX_FILENAME);
+
         System.out.println("Files successfully updated! " +
                 "\nCheck " +
                 "\n *   \"" + COSINE_VALUES_FILENAME + "\"" +
                 "\n *   \"" + CUSTOM_DIVISION_FILENAME + "\"" +
                 "\n *   \"" + EXPERT_DIVISION_FILENAME + "\"" +
+                "\n *   \"" + COSINE_MEASURE_MATRIX_FILENAME + "\"" +
                 "\nClosing project...");
         keyWriter.close();
         valueWriter.close();

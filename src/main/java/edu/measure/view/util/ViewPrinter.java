@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import static edu.measure.controller.util.Constants.OUTPUT_DIRECTORY;
+
 /**
  * Class for console output methods.
  */
@@ -52,7 +54,21 @@ public class ViewPrinter {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    public void printDoubleArrayToFile(double[][] arrayToPrint, String name) {
+        try {
+            PrintWriter writer = new PrintWriter(OUTPUT_DIRECTORY+name);
+            for (int i = 0; i < arrayToPrint.length; i++) {
+                for (int j = 0; j < arrayToPrint.length; j++) {
+                    writer.format("%.6f ", arrayToPrint[i][j]);
+                }
+                writer.println("");
+            }
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
 /*TODO APACHE COMMANDS STRING UTIL*/
