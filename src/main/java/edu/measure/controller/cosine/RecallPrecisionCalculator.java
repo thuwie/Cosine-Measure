@@ -2,7 +2,7 @@ package edu.measure.controller.cosine;
 
 import edu.measure.controller.cosine.delimeters.DelimiterCommandMap;
 import edu.measure.controller.util.DivisionMarker;
-import edu.measure.view.util.ViewPrinter;
+import edu.measure.view.util.OutputProvider;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,6 @@ public class RecallPrecisionCalculator {
     private static final DivisionMarker divisionMarker = new DivisionMarker();
 
     public double cosineEdgeComparator(List<Map<String, Integer>> list, Map<String, Double> calculatedMap, String userCommand) {
-        //TODO in FOR loop change logic to command from map
         DelimiterCommandMap commandMap = new DelimiterCommandMap();
         DelimiterCommand delimiterCommand;
         double compareResult, bestResult = 0;
@@ -44,8 +43,9 @@ public class RecallPrecisionCalculator {
         }
 
         customEdges = divisionMarker.customEdgeChecker(calculatedMap, calculatedMap.size(), bestEdge);
-        new ViewPrinter().printBooleanArrayToFile(customEdges, OUTPUT_DIRECTORY+CUSTOM_DIVISION_FILENAME);
-        new ViewPrinter().printBooleanArrayToFile(expertEdges, OUTPUT_DIRECTORY+EXPERT_DIVISION_FILENAME);
+        new OutputProvider().printBooleanArrayToFile(customEdges, CUSTOM_DIVISION_FILENAME);
+        new OutputProvider().printBooleanArrayToFile(expertEdges, EXPERT_DIVISION_FILENAME);
+
 
         return bestEdge;
     }

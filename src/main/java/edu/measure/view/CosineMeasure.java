@@ -1,84 +1,30 @@
 package edu.measure.view;
 
 
-import edu.measure.controller.MeasureMatrixCalculator;
-import edu.measure.controller.TextReader;
-import edu.measure.controller.cosine.MeasureCalculator;
-import edu.measure.controller.cosine.RecallPrecisionCalculator;
-import edu.measure.controller.cosine.delimeters.DelimiterCommandMap;
-import edu.measure.controller.util.Constants;
-import edu.measure.controller.util.DataMapsControl;
-import edu.measure.view.util.ViewPrinter;
+import edu.measure.view.command.ConsoleCommandMap;
+import edu.measure.view.command.ConsoleExecutors;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.*;
+import java.util.Map;
 
-import static edu.measure.controller.util.Constants.*;
+import static edu.measure.controller.util.Constants.input;
 
 public class CosineMeasure {
-
     public static void run() {
-        File dir = new File(OUTPUT_DIRECTORY);
-        dir.mkdir();
-        Map<String, Double> resultMap = new LinkedHashMap<>();
-        StringTokenizer textFromFile;
-        Double result;
-        PrintWriter keyWriter = null;
-        PrintWriter valueWriter = null;
-        try {
-            keyWriter = new PrintWriter(OUTPUT_DIRECTORY + COSINE_KEYS_FILENAME);
-            valueWriter = new PrintWriter(OUTPUT_DIRECTORY + COSINE_VALUES_FILENAME);
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+        ConsoleCommandMap commandMap = new ConsoleCommandMap();
+        ConsoleCommand delimiterCommand;
+        String userCommand;
+        new ConsoleExecutors().onStart();
+        while (true) {
+            Map<String, ConsoleCommand> consoleCommandMap = commandMap.getConsoleCommandMap();
+            System.out.println("Available actions: ");
+            for (String command : consoleCommandMap.keySet()) {
+                System.out.println(" *   \"" + command + "\"");
+            }
+            userCommand = input.nextLine();
+            delimiterCommand = consoleCommandMap.get(userCommand.toLowerCase());
+            if (delimiterCommand != null) {
+                delimiterCommand.executeCommand();
+            }
         }
-        TextReader textReader = new TextReader();
-        ViewPrinter viewPrinter = new ViewPrinter();
-        MeasureCalculator measureCalculator = new MeasureCalculator();
-        DataMapsControl dataMapsControl = new DataMapsControl();
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Available files: germansubs, uboat, chap7, chap8, robototech\nPrint filename: ");
-        String filename=input.nextLine();
-        Constants.staticTextFromFileForStoraging = textReader.returnStringTokenFromFile("sourceFiles/" + filename);
-        System.out.println("Available modes:");
-
-        for (String key : new DelimiterCommandMap().getCommands()) {
-            System.out.println(" *   \"" + key + "\"");
-        }
-
-        System.out.println("Print command: ");
-        String command = input.nextLine();
-        textFromFile = Constants.staticTextFromFileForStoraging;
-
-        List<Map<String, Integer>> list = dataMapsControl.mapConfig(textFromFile);
-
-        for (int i = 0; i < list.size() - 1; i++) {
-            String filler = "" + (i + 1);
-            result = measureCalculator.mergeMaps(list.get(i), list.get(i + 1));
-            resultMap.put(filler, result);
-            keyWriter.println(filler);
-            valueWriter.println(result);
-        }
-        finalMap = resultMap;
-        viewPrinter.printDoubleMap(resultMap);
-        double[][] finalMatrix = new MeasureMatrixCalculator().matrixCalculator(list);
-        double resulted = new RecallPrecisionCalculator().cosineEdgeComparator(list, finalMap, command);
-
-        System.out.format("Best edge: %.3f%n", resulted);
-
-        viewPrinter.printDoubleArrayToFile(finalMatrix,filename+COSINE_MEASURE_MATRIX_FILENAME);
-
-        System.out.println("Files successfully updated! " +
-                "\nCheck " +
-                "\n *   \"" + COSINE_VALUES_FILENAME + "\"" +
-                "\n *   \"" + CUSTOM_DIVISION_FILENAME + "\"" +
-                "\n *   \"" + EXPERT_DIVISION_FILENAME + "\"" +
-                "\n *   \"" + COSINE_MEASURE_MATRIX_FILENAME + "\"" +
-                "\nClosing project...");
-        keyWriter.close();
-        valueWriter.close();
     }
-
 }

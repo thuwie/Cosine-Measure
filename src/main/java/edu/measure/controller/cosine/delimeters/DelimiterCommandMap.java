@@ -28,7 +28,6 @@ public class DelimiterCommandMap {
     public Map<String, DelimiterCommand> getDelimiterCommandMap() {
         return delimiterCommandMap;
     }
-
     public Set<String> getCommands() {
         return delimiterCommandMap.keySet();
     }

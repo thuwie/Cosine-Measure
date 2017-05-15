@@ -6,11 +6,12 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import static edu.measure.controller.util.Constants.OUTPUT_DIRECTORY;
+import static edu.measure.controller.util.Constants.changedFiles;
 
 /**
  * Class for console output methods.
  */
-public class ViewPrinter {
+public class OutputProvider {
     public void printIntegerMap(Map<String, Integer> stringIntegerMap) {
         for (String key : stringIntegerMap.keySet()) {
             System.out.println(key + " " + stringIntegerMap.get(key));
@@ -46,10 +47,11 @@ public class ViewPrinter {
 
     public void printBooleanArrayToFile(boolean[] array, String name) {
         try {
-            PrintWriter expertWriter = new PrintWriter(name);
+            PrintWriter expertWriter = new PrintWriter(OUTPUT_DIRECTORY+name);
             for (int i = 1; i < array.length; i++) {
                 expertWriter.write("" + array[i] + " \n");
             }
+            changedFiles.add(name);
             expertWriter.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -65,6 +67,7 @@ public class ViewPrinter {
                 }
                 writer.println("");
             }
+            changedFiles.add(name);
             writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

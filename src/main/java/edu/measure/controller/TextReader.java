@@ -17,15 +17,15 @@ import static edu.measure.controller.util.Constants.END_OF_PARAGRAPH;
 
 public class TextReader {
     public StringTokenizer returnStringTokenFromFile(String filename) {
-        String readedText;
+        String readText;
         String finalText = "";
         BufferedReader input;
         try {
              input = new BufferedReader(new FileReader(filename));
-            readedText = input.readLine();
-            while (readedText != null) {
-                finalText += readNextLine(readedText);
-                readedText = input.readLine();
+            readText = input.readLine();
+            while (readText != null) {
+                finalText += readNextLine(readText);
+                readText = input.readLine();
             }
             input.close();
         } catch (IOException e) {
